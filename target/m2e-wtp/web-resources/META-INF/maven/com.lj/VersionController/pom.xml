@@ -7,15 +7,126 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>VersionController Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  <properties>
+       <spring.version>4.1.1.RELEASE</spring.version>
+   </properties>
+
+   <repositories>
+    <repository>
+     <id>people.apache.snapshots</id>
+     <url>
+         http://repository.apache.org/content/groups/snapshots-group/
+     </url>
+     <releases>
+         <enabled>false</enabled>
+     </releases>
+     <snapshots>
+         <enabled>true</enabled>
+     </snapshots>
+ </repository>
+   </repositories>
+   
+  
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-  <build>
-    <finalName>VersionController</finalName>
-  </build>
+     <dependency>
+       <groupId>junit</groupId>
+       <artifactId>junit</artifactId>
+       <version>3.8.1</version>
+       <scope>test</scope>
+     </dependency>
+     
+     <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-core</artifactId>
+         <version>${spring.version}</version>
+     </dependency>
+     <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-webmvc</artifactId>
+         <version>${spring.version}</version>
+     </dependency>
+     <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-beans</artifactId>
+         <version>${spring.version}</version>
+     </dependency>
+     <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-context</artifactId>
+         <version>${spring.version}</version>
+     </dependency>
+      
+ 
+     <dependency>
+         <groupId>taglibs</groupId>
+         <artifactId>standard</artifactId>
+         <version>1.1.2</version>
+     </dependency>
+     
+     <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+    <type>jar</type>
+  </dependency>
+  <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>servlet-api</artifactId>
+    <version>2.5</version>
+    <scope>provided</scope>
+  </dependency>
+  <dependency>
+    <groupId>javax.servlet.jsp</groupId>
+    <artifactId>jsp-api</artifactId>
+    <version>2.1</version>
+    <scope>provided</scope>
+  </dependency>
+   
+   </dependencies>
+     
+   <build>
+     <finalName>VersionController</finalName>
+     
+     <pluginManagement>
+     <plugins>
+         <plugin>
+             <groupId>org.apache.tomcat.maven</groupId>
+             <artifactId>tomcat6-maven-plugin</artifactId>
+             <version>2.2</version> 
+             <configuration>
+               <port>80</port>
+               <path>/</path>
+               <uriEncoding>UTF-8</uriEncoding>
+             </configuration> 
+         </plugin>
+         <plugin>
+             <groupId>org.apache.tomcat.maven</groupId>
+             <artifactId>tomcat7-maven-plugin</artifactId>
+             <version>2.2</version>
+             <configuration>
+                 <port>80</port>
+                <path>/</path>
+               <uriEncoding>UTF-8</uriEncoding>
+             </configuration>
+         </plugin>
+     </plugins>
+ </pluginManagement>
+   </build>
+   
+   <pluginRepositories>
+   <pluginRepository>
+     <id>apache.snapshots</id>
+     <name>Apache Snapshots</name>
+     <url>
+         http://repository.apache.org/content/groups/snapshots-group/
+     </url>
+     <releases>
+         <enabled>false</enabled>
+     </releases>
+     <snapshots>
+         <enabled>true</enabled>
+     </snapshots>
+ </pluginRepository>
+ </pluginRepositories>
+ 
 </project>
