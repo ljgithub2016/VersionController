@@ -15,8 +15,8 @@ public class SampleBookRepositoryService {
 	@Resource
     private SampleBookRepository repository;
 
-    @Resource
-	private ElasticsearchTemplate template;
+    //@Resource
+	//private ElasticsearchTemplate template;
     
     
     
