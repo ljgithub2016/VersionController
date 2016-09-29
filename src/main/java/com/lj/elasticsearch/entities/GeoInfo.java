@@ -11,6 +11,7 @@ import org.springframework.data.annotation.Version;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
+import org.springframework.data.elasticsearch.annotations.GeoPointField;
 
 @Document(indexName="geo-info",type="geo_point", shards=5,replicas=1,indexStoreType="fs",refreshInterval="-1")
 public class GeoInfo {
@@ -18,20 +19,19 @@ public class GeoInfo {
 	@Id
 	private String id;
 	
-	@Version
-	private Long version;
+	private String name;
 	
-	@Field(type = FieldType.Nested)
-	private Map<Integer, Collection<String>> buckets = new HashMap();
-	
-	
-	public Map<Integer, Collection<String>> getBuckets() {
-		return buckets;
-	}
+	@Field(type=FieldType.Date)
+	private Date createDate;
 
-	public void setBuckets(Map<Integer, Collection<String>> buckets) {
-		this.buckets = buckets;
-	}
+	@GeoPointField
+	private String location;
+
+	@Field(type=FieldType.String)
+	private String city;
+	
+	@Field(type=FieldType.String)
+	private String address;
 
 	public String getId() {
 		return id;
@@ -41,28 +41,12 @@ public class GeoInfo {
 		this.id = id;
 	}
 
-	public Long getVersion() {
-		return version;
+	public String getName() {
+		return name;
 	}
 
-	public void setVersion(Long version) {
-		this.version = version;
-	}
-	
-	///////////////////////////////////////////////
-	private GeoPoint geopoint;
-
-	@Field(type=FieldType.Date)
-	private Date createDate;
-
-	
-
-	public GeoPoint getGeopoint() {
-		return geopoint;
-	}
-
-	public void setGeopoint(GeoPoint geopoint) {
-		this.geopoint = geopoint;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Date getCreateDate() {
@@ -72,6 +56,32 @@ public class GeoInfo {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	
+
 	
 }
