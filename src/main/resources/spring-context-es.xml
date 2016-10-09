@@ -9,8 +9,8 @@
 
     <!--<elasticsearch:transport-client id="client" cluster-name="elasticsearch" cluster-nodes="127.0.0.1:9300"/>-->
     
-	<elasticsearch:transport-client id="client" cluster-name="liujia" client-transport-sniff="false"
-                                    cluster-nodes="192.168.133.131:9300"/>
+	<elasticsearch:transport-client id="client" cluster-name="hirecar" client-transport-sniff="false"
+                                    cluster-nodes="192.168.1.50:9300"/>
                                     
     <bean name="elasticsearchTemplate" class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
         <constructor-arg name="client" ref="client"/>
